@@ -62,7 +62,7 @@ function ShareMenu({ isVisible, toggleVisibility, tweet, imgur }) {
       <Popout hidden={!isVisible} borderColor={COLORS.BLUE} pointerRight="6px" style={popoutStyle}>
         <div className="share-row flex">
           <Button padding="8px" color={COLORS.BLUE} onClick={onClickImgur}>
-            {imguring ? 'Uploading...' : 'Upload to Imgur (beta)'}
+            {imguring ? '上传中...' : '上传到 Imgur (beta)'}
           </Button>
         </div>
       </Popout>
