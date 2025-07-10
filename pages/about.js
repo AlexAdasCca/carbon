@@ -59,7 +59,7 @@ export default function About() {
         <div className="mb4">
           <h2>谁在使用它？</h2>
           <p>
-              Carbon 每天被数千名开发人员使用，其中包括以下专家：
+              Carbon 每天被数千名开发人员使用，其中包括以下权威：
             <img
               className="mt2"
               width="508px"
