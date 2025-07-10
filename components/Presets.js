@@ -80,7 +80,7 @@ const Presets = React.memo(
     return (
       <div className="settings-presets">
         <div className="settings-presets-header">
-          <span>Presets</span>
+          <span>预设</span>
           {show && (
             <Button
               margin="0 0 0 8px"
@@ -91,7 +91,7 @@ const Presets = React.memo(
               onClick={create}
               disabled={disabledCreate}
             >
-              create +
+              新建 +
             </Button>
           )}
           <Button center onClick={toggle} style={arrowButtonStyle} hoverBackground={COLORS.BLACK}>
@@ -121,7 +121,7 @@ const Presets = React.memo(
         )}
         {show && applied && (
           <div className="settings-presets-applied">
-            <span>Preset applied!</span>
+            <span>已应用预设！</span>
             <Button
               center
               flex="0"

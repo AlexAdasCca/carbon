@@ -8,21 +8,21 @@ const Footer = () => (
     <nav className="mt3">
       <Link href="/about" prefetch={false}>
         <a className="link" href="/about">
-          about
+          关于
         </a>
       </Link>
       <a className="link" href="https://github.com/carbon-app/carbon">
-        source
+        源代码
       </a>
       <a className="link" href="/terms">
-        terms
+        使用条款
       </a>
       <a className="link" href="/privacy">
-        privacy
+        隐私协议
       </a>
-      <a className="link" href="/offsets">
+      {/* <a className="link" href="/offsets">
         offsets
-      </a>
+      </a> */}
       {/* <span className="new">New</span> */}
     </nav>
 

@@ -44,7 +44,7 @@ function WindowSettings({
         onChange={onChange}
       />
       <Slider
-          label="Corner Radius"
+          label="圆角半径"
           value={borderRadius}
           minValue={0}
           maxValue={25}
@@ -53,13 +53,13 @@ function WindowSettings({
 
       <div className="row">
         <Slider
-          label="Padding (vert)"
+          label="垂直填充"
           value={paddingVertical}
           maxValue={200}
           onChange={onChange.bind(null, 'paddingVertical')}
         />
         <Slider
-          label="Padding (horiz)"
+          label="水平填充"
           value={paddingHorizontal}
           onChange={onChange.bind(null, 'paddingHorizontal')}
           onMouseDown={onWidthChanging}
@@ -67,33 +67,33 @@ function WindowSettings({
         />
       </div>
       <Toggle
-        label="Drop shadow"
+        label="底部阴影"
         enabled={dropShadow}
         onChange={onChange.bind(null, 'dropShadow')}
       />
       {dropShadow && (
         <div className="row drop-shadow-options">
           <Slider
-            label="(offset-y)"
+            label="(y方向偏移)"
             value={dropShadowOffsetY}
             onChange={onChange.bind(null, 'dropShadowOffsetY')}
           />
           <Slider
-            label="(blur-radius)"
+            label="(模糊半径)"
             value={dropShadowBlurRadius}
             onChange={onChange.bind(null, 'dropShadowBlurRadius')}
           />
         </div>
       )}
       <Toggle
-        label="Auto-adjust width"
+        label="自适应宽度"
         enabled={widthAdjustment}
         onChange={onChange.bind(null, 'widthAdjustment')}
       />
       {!widthAdjustment && (
         <div className="row settings-row width-row">
           <Input
-            label="Width"
+            label="宽度"
             type="number"
             value={width}
             min={DEFAULT_WIDTHS.minWidth}
@@ -103,7 +103,7 @@ function WindowSettings({
           />
         </div>
       )}
-      <Toggle label="Watermark" enabled={watermark} onChange={onChange.bind(null, 'watermark')} />
+      <Toggle label="水印" enabled={watermark} onChange={onChange.bind(null, 'watermark')} />
       <style jsx>
         {`
           .width-row {
@@ -149,7 +149,7 @@ function EditorSettings({
         onChange={onChange.bind(null, 'fontFamily')}
       />
       <Slider
-        label="Size"
+        label="字号"
         value={size}
         minValue={10}
         maxValue={18}
@@ -159,7 +159,7 @@ function EditorSettings({
         onMouseUp={onWidthChanged}
       />
       <Slider
-        label="Line height"
+        label="行高(行间距)"
         value={lineHeight}
         minValue={90}
         maxValue={250}
@@ -167,14 +167,14 @@ function EditorSettings({
         onChange={onChange.bind(null, 'lineHeight')}
       />
       <Toggle
-        label="Line numbers"
+        label="显示行号"
         enabled={lineNumbers}
         onChange={onChange.bind(null, 'lineNumbers')}
       />
       {lineNumbers && (
         <div className="row settings-row first-line-number-row">
           <Input
-            label="First line number"
+            label="行号初始值"
             type="number"
             value={firstLineNumber}
             min={0}
@@ -184,7 +184,7 @@ function EditorSettings({
         </div>
       )}
       <Toggle
-        label="Hidden characters"
+        label="显示隐藏字符标记"
         enabled={hiddenCharacters}
         onChange={onChange.bind(null, 'hiddenCharacters')}
       />
@@ -229,17 +229,17 @@ function MiscSettings({ format, reset, applyPreset, settings }) {
           style={{ borderRight: `1px solid ${COLORS.SECONDARY}` }}
           onClick={() => input.current.click()}
         >
-          Import config
+          导入配置
         </Button>
         <Button center Component="a" href={download} download="carbon-config.json">
-          Export config
+          导出配置
         </Button>
       </div>
       <Button center onClick={format} style={resetButtonStyle}>
-        Prettify code
+        美化代码
       </Button>
       <Button center color={COLORS.RED} onClick={reset} style={resetButtonStyle}>
-        Reset settings
+        重置设置
       </Button>
       <style jsx>
         {`

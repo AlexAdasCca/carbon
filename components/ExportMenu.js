@@ -43,7 +43,7 @@ function ExportMenu({ onChange, exportSize, isVisible, toggleVisibility, exportI
           style={{ minWidth: 92, borderBottomRightRadius: 0, borderTopRightRadius: 0 }}
           title="Quick export"
         >
-          {loading ? 'Exporting…' : 'Export'}
+          {loading ? '正在处理…' : '导出图像'}
         </Button>
         <Button
           id="export-menu"
@@ -72,11 +72,11 @@ function ExportMenu({ onChange, exportSize, isVisible, toggleVisibility, exportI
         style={popoutStyle}
       >
         <div className="export-row">
-          <span className="filename">File name</span>
+          <span className="filename">文件名</span>
           <Input ref={input} title="filename" placeholder="carbon" color={COLORS.PURPLE} />
         </div>
         <div className="export-row">
-          <span>Size</span>
+          <span>尺寸</span>
           <div className="flex">
             {EXPORT_SIZES.map(({ name }, i) => (
               <Button
@@ -100,10 +100,10 @@ function ExportMenu({ onChange, exportSize, isVisible, toggleVisibility, exportI
               exportImage('blob', { filename: input.current && input.current.value, open: true })
             }
           >
-            Open
+            打开
           </Button>
           <div className="save-container">
-            <span>Download</span>
+            <span>下载</span>
             <div>
               <Button
                 center
