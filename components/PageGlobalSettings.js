@@ -95,121 +95,129 @@ class PageGlobalSettings extends React.Component {
         )}
 
         <style jsx>{`
-          .settings-button {
+        .settings-button {
             font-size: 18px;
             background: none;
             border: none;
             cursor: pointer;
-          }
+            color: #ccc;
+        }
 
-          .settings-modal {
+        .settings-modal {
             position: fixed;
             top: 12%;
             left: 50%;
             transform: translateX(-50%);
-            background: #ffffff;
+            background: #1e1e1e;
             border-radius: 12px;
-            border: 1px solid #d0d0d0;
+            border: 1px solid #333;
             width: 480px;
             max-height: 80vh;
             z-index: 1000;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             overflow: hidden;
             display: flex;
             flex-direction: column;
-          }
+            color: #e0e0e0;
+        }
 
-          .modal-header {
+        .modal-header {
             padding: 1rem 1.2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: #f7f9fc;
-            border-bottom: 1px solid #eee;
-          }
+            background: #2a2a2a;
+            border-bottom: 1px solid #333;
+        }
 
-          .close {
+        .close {
             background: none;
             border: none;
             font-size: 20px;
             cursor: pointer;
             padding: 0 6px;
+            color: #999;
             transition: color 0.2s ease;
-          }
+        }
 
-          .close:hover {
+        .close:hover {
             color: #ff4d4f;
-          }
+        }
 
-          .settings-body {
+        .settings-body {
             display: flex;
             flex: 1;
             overflow: hidden;
-          }
+        }
 
-          .tab-menu {
+        .tab-menu {
             width: 140px;
-            background: #f8f9fb;
-            border-right: 1px solid #eee;
+            background: #2a2a2a;
+            border-right: 1px solid #333;
             display: flex;
             flex-direction: column;
-          }
+        }
 
-          .tab-menu button {
+        .tab-menu button {
             padding: 0.75rem 1rem;
             background: none;
             border: none;
             text-align: left;
             cursor: pointer;
             font-size: 14px;
-            transition: background 0.2s ease;
-          }
+            color: #ccc;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
 
-          .tab-menu button:hover {
-            background: #e6f7ff;
-          }
+        .tab-menu button:hover {
+            background: #333;
+            color: #fff;
+        }
 
-          .tab-menu button.active {
-            background: #bae7ff;
+        .tab-menu button.active {
+            background: #1890ff;
+            color: #fff;
             font-weight: bold;
-          }
+        }
 
-          .tab-panel {
+        .tab-panel {
             flex: 1;
             padding: 1.2rem;
             overflow-y: auto;
-          }
+        }
 
-          .tab-content {
+        .tab-content {
             display: flex;
             flex-direction: column;
-          }
+        }
 
-          .tab-content label {
+        .tab-content label {
             font-weight: 500;
             margin-bottom: 6px;
-            color: #333;
-          }
+            color: #ccc;
+        }
 
-          .tab-content input {
+        .tab-content input {
             padding: 8px 10px;
             font-size: 14px;
-            border: 1px solid #ccc;
+            background: #2a2a2a;
+            border: 1px solid #444;
             border-radius: 6px;
+            color: #eee;
             margin-bottom: 12px;
             outline: none;
             transition: border 0.2s ease;
-          }
+        }
 
-          .tab-content input:focus {
+        .tab-content input:focus {
             border-color: #1890ff;
-          }
+        }
 
-          .tab-actions {
+        .tab-actions {
             margin-top: 4px;
-          }
+        }
 
-          .save-btn {
+        .save-btn {
             background: #1890ff;
             color: white;
             border: none;
@@ -218,11 +226,11 @@ class PageGlobalSettings extends React.Component {
             cursor: pointer;
             font-size: 14px;
             transition: background 0.2s ease;
-          }
+        }
 
-          .save-btn:hover {
+        .save-btn:hover {
             background: #40a9ff;
-          }
+        }
         `}</style>
       </>
     )
