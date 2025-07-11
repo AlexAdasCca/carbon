@@ -45,7 +45,7 @@ class PageGlobalSettings extends React.Component {
           placeholder="请输入你的 Imgur Client-ID"
         />
         <div className="tab-actions">
-          <button className="save-btn" onClick={this.saveClientId}>💾 保存</button>
+          <button className="fluent-button" onClick={this.saveClientId}>保存</button>
         </div>
       </div>
     )
@@ -69,97 +69,106 @@ class PageGlobalSettings extends React.Component {
         </button>
 
         {showSettings && (
-          <div className="settings-modal">
-            <div className="modal-header">
-              <h3>全局设置</h3>
-              <button className="close" onClick={this.toggleSettings}>×</button>
-            </div>
-            <div className="settings-body">
-              <div className="tab-menu">
-                {TABS.map(tab => (
-                  <button
-                    key={tab.id}
-                    onClick={() => this.switchTab(tab.id)}
-                    className={tab.id === activeTab ? 'active' : ''}
-                  >
-                    {tab.name}
-                  </button>
-                ))}
+          <>
+            <div className="modal-backdrop" onClick={this.toggleSettings}></div>
+            <div className="settings-modal">
+              <div className="modal-header">
+                <h3>全局设置</h3>
+                <button className="close" onClick={this.toggleSettings}>×</button>
               </div>
-              <div className="tab-panel">
-                {activeTab === 'imgur' && this.renderImgurTab()}
-                {activeTab === 'general' && this.renderGeneralTab()}
+              <div className="settings-body">
+                <div className="tab-menu">
+                  {TABS.map(tab => (
+                    <button
+                      key={tab.id}
+                      onClick={() => this.switchTab(tab.id)}
+                      className={tab.id === activeTab ? 'active' : ''}
+                    >
+                      {tab.name}
+                    </button>
+                  ))}
+                </div>
+                <div className="tab-panel">
+                  {activeTab === 'imgur' && this.renderImgurTab()}
+                  {activeTab === 'general' && this.renderGeneralTab()}
+                </div>
               </div>
             </div>
-          </div>
+          </>
         )}
 
         <style jsx>{`
-        .settings-button {
+          .settings-button {
             font-size: 18px;
             background: none;
             border: none;
             cursor: pointer;
             color: #ccc;
-        }
+          }
 
-        .settings-modal {
+          .modal-backdrop {
             position: fixed;
-            top: 12%;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+          }
+
+          .settings-modal {
+            position: fixed;
+            top: 50%;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translate(-50%, -50%);
             background: #1e1e1e;
-            border-radius: 12px;
+            border-radius: 16px;
             border: 1px solid #333;
-            width: 480px;
-            max-height: 80vh;
+            width: 640px;
+            max-height: 85vh;
             z-index: 1000;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
             overflow: hidden;
             display: flex;
             flex-direction: column;
             color: #e0e0e0;
-        }
+          }
 
-        .modal-header {
-            padding: 1rem 1.2rem;
+          .modal-header {
+            padding: 1rem 1.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: #2a2a2a;
+            background: #252525;
             border-bottom: 1px solid #333;
-        }
+          }
 
-        .close {
+          .close {
             background: none;
             border: none;
             font-size: 20px;
             cursor: pointer;
-            padding: 0 6px;
-            color: #999;
+            color: #aaa;
             transition: color 0.2s ease;
-        }
+          }
 
-        .close:hover {
+          .close:hover {
             color: #ff4d4f;
-        }
+          }
 
-        .settings-body {
+          .settings-body {
             display: flex;
             flex: 1;
             overflow: hidden;
-        }
+          }
 
-        .tab-menu {
-            width: 140px;
+          .tab-menu {
+            width: 160px;
             background: #2a2a2a;
             border-right: 1px solid #333;
             display: flex;
             flex-direction: column;
-        }
+          }
 
-        .tab-menu button {
-            padding: 0.75rem 1rem;
+          .tab-menu button {
+            padding: 0.9rem 1.2rem;
             background: none;
             border: none;
             text-align: left;
@@ -167,70 +176,73 @@ class PageGlobalSettings extends React.Component {
             font-size: 14px;
             color: #ccc;
             transition: background 0.2s ease, color 0.2s ease;
-        }
+          }
 
-        .tab-menu button:hover {
+          .tab-menu button:hover {
             background: #333;
             color: #fff;
-        }
+          }
 
-        .tab-menu button.active {
+          .tab-menu button.active {
             background: #1890ff;
             color: #fff;
             font-weight: bold;
-        }
+          }
 
-        .tab-panel {
+          .tab-panel {
             flex: 1;
-            padding: 1.2rem;
+            padding: 1.5rem;
             overflow-y: auto;
-        }
+          }
 
-        .tab-content {
+          .tab-content {
             display: flex;
             flex-direction: column;
-        }
+            gap: 0.8rem;
+          }
 
-        .tab-content label {
+          .tab-content label {
             font-weight: 500;
-            margin-bottom: 6px;
             color: #ccc;
-        }
+          }
 
-        .tab-content input {
-            padding: 8px 10px;
+          .tab-content input {
+            padding: 10px 12px;
             font-size: 14px;
-            background: #2a2a2a;
+            background: #2e2e2e;
             border: 1px solid #444;
-            border-radius: 6px;
+            border-radius: 8px;
             color: #eee;
-            margin-bottom: 12px;
             outline: none;
-            transition: border 0.2s ease;
-        }
+            transition: border 0.2s ease, background 0.2s ease;
+          }
 
-        .tab-content input:focus {
+          .tab-content input:focus {
             border-color: #1890ff;
-        }
+            background: #3a3a3a;
+          }
 
-        .tab-actions {
-            margin-top: 4px;
-        }
+          .tab-actions {
+            margin-top: 1rem;
+          }
 
-        .save-btn {
-            background: #1890ff;
-            color: white;
-            border: none;
-            padding: 8px 16px;
+          .fluent-button {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            padding: 10px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 6px;
+            backdrop-filter: blur(8px);
             cursor: pointer;
             font-size: 14px;
-            transition: background 0.2s ease;
-        }
+            transition: all 0.25s ease;
+          }
 
-        .save-btn:hover {
-            background: #40a9ff;
-        }
+          .fluent-button:hover {
+            background: rgba(24, 144, 255, 0.2);
+            border-color: #1890ff;
+            color: #ffffff;
+          }
         `}</style>
       </>
     )
