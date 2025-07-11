@@ -70,7 +70,13 @@ class PageGlobalSettings extends React.Component {
 
         {showSettings && (
           <>
-            <div className="modal-backdrop" onClick={this.toggleSettings}></div>
+            <div
+                className="modal-backdrop"
+                role="button"
+                tabIndex="0"
+                onClick={this.toggleSettings}
+                onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && this.toggleSettings()}
+            ></div>
             <div className="settings-modal">
               <div className="modal-header">
                 <h3>全局设置</h3>
