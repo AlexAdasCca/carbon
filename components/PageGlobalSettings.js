@@ -207,36 +207,36 @@ class PageGlobalSettings extends React.Component {
             display: flex;
             flex-direction: column;
             gap: 1rem;
-          }
 
-          .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 0.4rem;
-          }
+            .form-group {
+              display: flex;
+              flex-direction: column;
+              gap: 0.4rem;
+            }
 
-          .form-group label {
-            font-weight: 500;
-            color: #ccc;
-          }
+            .form-group label {
+              font-weight: 500;
+              color: #ccc;
+            }
 
-          .form-group input {
-            padding: 12px 14px;
-            font-size: 14px;
-            background: #2a2a2a;
-            border: 1px solid #555;
-            border-radius: 8px;
-            color: #eee;
-            outline: none;
-            transition: border 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-          }
+            .form-group input {
+              padding: 12px 14px;
+              font-size: 14px;
+              background: #2a2a2a;
+              border: 1px solid #555;
+              border-radius: 8px;
+              color: #eee;
+              outline: none;
+              transition: border 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+            }
 
-          .form-group input:focus {
-            border-color: #1890ff;
-            background: #333;
-            box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.3);
+            .form-group input:focus {
+              border-color: #1890ff;
+              background: #333;
+              box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.3);
+            }
           }
-
+          
           .tab-actions {
             margin-top: 0.5rem;
           }
