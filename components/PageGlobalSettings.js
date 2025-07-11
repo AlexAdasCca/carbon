@@ -3,7 +3,6 @@ import React from 'react'
 const TABS = [
   { id: 'imgur', name: 'Imgur 设置' },
   { id: 'general', name: '通用设置' },
-  // 未来可加更多
 ]
 
 class PageGlobalSettings extends React.Component {
@@ -37,15 +36,16 @@ class PageGlobalSettings extends React.Component {
   renderImgurTab() {
     return (
       <div className="tab-content">
-        <label htmlFor="client-id">Imgur Client-ID：</label>
-        <input id="client-id"
+        <label htmlFor="client-id">Imgur Client-ID</label>
+        <input
+          id="client-id"
           type="text"
           value={this.state.clientId}
           onChange={e => this.setState({ clientId: e.target.value })}
           placeholder="请输入你的 Imgur Client-ID"
         />
         <div className="tab-actions">
-          <button onClick={this.saveClientId}>保存</button>
+          <button className="save-btn" onClick={this.saveClientId}>💾 保存</button>
         </div>
       </div>
     )
@@ -64,11 +64,7 @@ class PageGlobalSettings extends React.Component {
 
     return (
       <>
-        <button
-          className="settings-button"
-          onClick={this.toggleSettings}
-          title="全局设置"
-        >
+        <button className="settings-button" onClick={this.toggleSettings} title="全局设置">
           ⚙️
         </button>
 
@@ -108,20 +104,27 @@ class PageGlobalSettings extends React.Component {
 
           .settings-modal {
             position: fixed;
-            top: 15%;
+            top: 12%;
             left: 50%;
             transform: translateX(-50%);
-            background: white;
-            border: 1px solid #ccc;
-            width: 420px;
+            background: #ffffff;
+            border-radius: 12px;
+            border: 1px solid #d0d0d0;
+            width: 480px;
+            max-height: 80vh;
             z-index: 1000;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
           }
 
           .modal-header {
-            padding: 1rem;
+            padding: 1rem 1.2rem;
             display: flex;
             justify-content: space-between;
+            align-items: center;
+            background: #f7f9fc;
             border-bottom: 1px solid #eee;
           }
 
@@ -130,36 +133,51 @@ class PageGlobalSettings extends React.Component {
             border: none;
             font-size: 20px;
             cursor: pointer;
+            padding: 0 6px;
+            transition: color 0.2s ease;
+          }
+
+          .close:hover {
+            color: #ff4d4f;
           }
 
           .settings-body {
             display: flex;
+            flex: 1;
+            overflow: hidden;
           }
 
           .tab-menu {
-            width: 120px;
+            width: 140px;
+            background: #f8f9fb;
             border-right: 1px solid #eee;
             display: flex;
             flex-direction: column;
           }
 
           .tab-menu button {
-            padding: 0.75rem;
+            padding: 0.75rem 1rem;
             background: none;
             border: none;
             text-align: left;
             cursor: pointer;
             font-size: 14px;
+            transition: background 0.2s ease;
+          }
+
+          .tab-menu button:hover {
+            background: #e6f7ff;
           }
 
           .tab-menu button.active {
-            background: #f0f0f0;
+            background: #bae7ff;
             font-weight: bold;
           }
 
           .tab-panel {
             flex: 1;
-            padding: 1rem;
+            padding: 1.2rem;
+            overflow-y: auto;
           }
 
           .tab-content {
@@ -167,13 +185,43 @@ class PageGlobalSettings extends React.Component {
             flex-direction: column;
           }
 
+          .tab-content label {
+            font-weight: 500;
+            margin-bottom: 6px;
+            color: #333;
+          }
+
           .tab-content input {
-            margin-top: 0.5rem;
-            padding: 6px;
+            padding: 8px 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            outline: none;
+            transition: border 0.2s ease;
+          }
+
+          .tab-content input:focus {
+            border-color: #1890ff;
           }
 
           .tab-actions {
-            margin-top: 1rem;
+            margin-top: 4px;
+          }
+
+          .save-btn {
+            background: #1890ff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.2s ease;
+          }
+
+          .save-btn:hover {
+            background: #40a9ff;
           }
         `}</style>
       </>
