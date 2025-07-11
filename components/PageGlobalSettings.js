@@ -105,7 +105,7 @@ class PageGlobalSettings extends React.Component {
           </>
         )}
 
-        <style jsx global>{`
+        <style jsx >{`
           .settings-button {
             font-size: 18px;
             background: none;
@@ -209,15 +209,19 @@ class PageGlobalSettings extends React.Component {
             gap: 1rem;
           }
 
+          /* 标签和输入框垂直布局 */
           .form-group {
             display: flex;
             flex-direction: column;
-            gap: 0.4rem;
+            gap: 8px; /* 间距 */
+            margin-bottom: 16px;
           }
 
           .form-group label {
             font-weight: 500;
             color: #ccc;
+            display: block; /* 标签单独一行 */
+            margin-bottom: 6px; /* 标签与输入框间距 */
           }
 
           .form-group input {
@@ -229,6 +233,8 @@ class PageGlobalSettings extends React.Component {
             color: #eee;
             outline: none;
             transition: border 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+            width: 100%; /* 输入框宽度填满容器 */
+            box-sizing: border-box;
           }
 
           .form-group input:focus {
@@ -239,24 +245,55 @@ class PageGlobalSettings extends React.Component {
 
           .tab-actions {
             margin-top: 0.5rem;
+            display: flex;
+            justify-content: flex-end; /* 按钮右对齐 */
           }
 
+          /* Fluent按钮样式 */
           .fluent-button {
-            background: rgba(255, 255, 255, 0.05);
+            background: linear-gradient(135deg, #0078d7, #1890ff);
             color: #fff;
-            padding: 10px 20px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 8px;
-            backdrop-filter: blur(10px);
+            padding: 10px 24px;
+            border: none;
+            border-radius: 6px;
             cursor: pointer;
             font-size: 14px;
+            font-weight: 600;
             transition: all 0.25s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
           }
 
+          /* Fluent按钮悬停效果 */
           .fluent-button:hover {
-            background: rgba(24, 144, 255, 0.2);
-            border-color: #1890ff;
-            color: #fff;
+            background: linear-gradient(135deg, #106ebe, #40a9ff);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+          }
+
+          /* Fluent按钮按下效果 */
+          .fluent-button:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+          }
+
+          /* Fluent按钮的微光效果 */
+          .fluent-button::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(30deg);
+            transition: all 0.5s ease;
+            pointer-events: none;
+          }
+
+          .fluent-button:hover::after {
+            transform: rotate(30deg) translate(50%, 50%);
           }
         `}</style>
       </>
