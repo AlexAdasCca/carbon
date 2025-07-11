@@ -5,6 +5,7 @@ import Header from './Header'
 import Footer from './Footer'
 import Announcement from './Announcement'
 import LoginButton from './LoginButton'
+import PageGlobalSettings from './PageGlobalSettings'
 
 const COLUMN = `
   display: flex;
@@ -21,8 +22,9 @@ class Page extends React.Component {
         <AuthContext>
           <Announcement />
           <Header enableHeroText={enableHeroText} />
-          <div className="login-button-container">
+          <div className="button-container">
             <LoginButton />
+            <PageGlobalSettings />
           </div>
           <div className="page">{children}</div>
         </AuthContext>
@@ -35,10 +37,13 @@ class Page extends React.Component {
               ${flex ? COLUMN : ''}
               margin-top: 6rem;
             }
-            .login-button-container {
+            .button-container {
               position: absolute;
               top: 1.4rem;
               right: 1rem;
+              display: flex;
+              gap: 8px;
+              align-items: center;
             }
             .page {
               max-width: 100%;
