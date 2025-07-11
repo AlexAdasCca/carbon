@@ -37,8 +37,8 @@ class PageGlobalSettings extends React.Component {
   renderImgurTab() {
     return (
       <div className="tab-content">
-        <label>Imgur Client-ID：</label>
-        <input
+        <label htmlFor="client-id">Imgur Client-ID：</label>
+        <input id="client-id"
           type="text"
           value={this.state.clientId}
           onChange={e => this.setState({ clientId: e.target.value })}
