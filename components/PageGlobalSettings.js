@@ -36,8 +36,8 @@ class PageGlobalSettings extends React.Component {
   renderImgurTab() {
     return (
       <div className="tab-content">
-        <div className="form-group">
-          <label htmlFor="client-id">Imgur Client-ID</label>
+        <div className="form-group1">
+          <label htmlFor="client-id" style={{ background: 'red' }}>Imgur Client-ID</label>
           <input
             id="client-id"
             type="text"

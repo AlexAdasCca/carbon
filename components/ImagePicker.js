@@ -310,10 +310,10 @@ export default class ImagePicker extends React.Component {
                 width: 100%;
               }
 
-              // .label {
-              //   user-select: none;
-              //   margin-bottom: 4px;
-              // }
+              .label {
+                user-select: none;
+                margin-bottom: 4px;
+              }
 
               :global(.ReactCrop__image) {
                 user-select: none;
