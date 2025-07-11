@@ -104,151 +104,157 @@ class PageGlobalSettings extends React.Component {
         )}
 
         <style jsx>{`
-          .settings-button {
-            font-size: 18px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            color: #ccc;
-          }
+            .settings-button {
+                font-size: 18px;
+                background: none;
+                border: none;
+                cursor: pointer;
+                color: #ccc;
+            }
 
-          .modal-backdrop {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 999;
-          }
+            .modal-backdrop {
+                position: fixed;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 999;
+            }
 
-          .settings-modal {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: #1e1e1e;
-            border-radius: 16px;
-            border: 1px solid #333;
-            width: 640px;
-            max-height: 85vh;
-            z-index: 1000;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            color: #e0e0e0;
-          }
+            .settings-modal {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: #1e1e1e;
+                border-radius: 16px;
+                border: 1px solid #333;
+                width: 640px;
+                max-height: 85vh;
+                z-index: 1000;
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                color: #e0e0e0;
+            }
 
-          .modal-header {
-            padding: 1rem 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: #252525;
-            border-bottom: 1px solid #333;
-          }
+            .modal-header {
+                padding: 1rem 1.5rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                background: #252525;
+                border-bottom: 1px solid #333;
+            }
 
-          .close {
-            background: none;
-            border: none;
-            font-size: 20px;
-            cursor: pointer;
-            color: #aaa;
-            transition: color 0.2s ease;
-          }
+            .close {
+                background: none;
+                border: none;
+                font-size: 20px;
+                cursor: pointer;
+                color: #aaa;
+                transition: color 0.2s ease;
+            }
 
-          .close:hover {
-            color: #ff4d4f;
-          }
+            .close:hover {
+                color: #ff4d4f;
+            }
 
-          .settings-body {
-            display: flex;
-            flex: 1;
-            overflow: hidden;
-          }
+            .settings-body {
+                display: flex;
+                flex: 1;
+                overflow: hidden;
+            }
 
-          .tab-menu {
-            width: 160px;
-            background: #2a2a2a;
-            border-right: 1px solid #333;
-            display: flex;
-            flex-direction: column;
-          }
+            .tab-menu {
+                width: 160px;
+                background: #2a2a2a;
+                border-right: 1px solid #333;
+                display: flex;
+                flex-direction: column;
+            }
 
-          .tab-menu button {
-            padding: 0.9rem 1.2rem;
-            background: none;
-            border: none;
-            text-align: left;
-            cursor: pointer;
-            font-size: 14px;
-            color: #ccc;
-            transition: background 0.2s ease, color 0.2s ease;
-          }
+            .tab-menu button {
+                padding: 0.9rem 1.2rem;
+                background: none;
+                border: none;
+                text-align: left;
+                cursor: pointer;
+                font-size: 14px;
+                color: #ccc;
+                transition: background 0.2s ease, color 0.2s ease;
+            }
 
-          .tab-menu button:hover {
-            background: #333;
-            color: #fff;
-          }
+            .tab-menu button:hover {
+                background: #333;
+                color: #fff;
+            }
 
-          .tab-menu button.active {
-            background: #1890ff;
-            color: #fff;
-            font-weight: bold;
-          }
+            .tab-menu button.active {
+                background: #1890ff;
+                color: #fff;
+                font-weight: bold;
+            }
 
-          .tab-panel {
-            flex: 1;
-            padding: 1.5rem;
-            overflow-y: auto;
-          }
+            .tab-panel {
+                flex: 1;
+                padding: 1.5rem;
+                overflow-y: auto;
+            }
 
-          .tab-content {
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-          }
+            .tab-content {
+                display: flex;
+                flex-direction: column;
+                gap: 0.8rem;
+            }
 
-          .tab-content label {
-            font-weight: 500;
-            color: #ccc;
-          }
+            .tab-content label {
+                display: block;
+                font-weight: 600;
+                color: #ccc;
+                font-size: 14px;
+            }
 
-          .tab-content input {
-            padding: 10px 12px;
-            font-size: 14px;
-            background: #2e2e2e;
-            border: 1px solid #444;
-            border-radius: 8px;
-            color: #eee;
-            outline: none;
-            transition: border 0.2s ease, background 0.2s ease;
-          }
+            .tab-content input {
+                padding: 10px 12px;
+                font-size: 14px;
+                background: #2d2d2d;
+                border: 1px solid #444;
+                border-radius: 8px;
+                color: #eee;
+                outline: none;
+                transition: border 0.2s ease, background 0.2s ease;
+            }
 
-          .tab-content input:focus {
-            border-color: #1890ff;
-            background: #3a3a3a;
-          }
+            .tab-content input:focus {
+                border-color: #1890ff;
+                background: #3a3a3a;
+            }
 
-          .tab-actions {
-            margin-top: 1rem;
-          }
+            .tab-actions {
+                margin-top: 1rem;
+            }
 
-          .fluent-button {
-            background: rgba(255, 255, 255, 0.05);
-            color: #fff;
-            padding: 10px 20px;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 6px;
-            backdrop-filter: blur(8px);
-            cursor: pointer;
-            font-size: 14px;
-            transition: all 0.25s ease;
-          }
+            .fluent-button {
+                background: rgba(255, 255, 255, 0.06);
+                color: #fff;
+                padding: 10px 20px;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                border-radius: 8px;
+                backdrop-filter: blur(10px);
+                cursor: pointer;
+                font-size: 14px;
+                font-weight: 500;
+                box-shadow: inset 0 0 0 0 transparent;
+                transition: all 0.3s ease;
+            }
 
-          .fluent-button:hover {
-            background: rgba(24, 144, 255, 0.2);
-            border-color: #1890ff;
-            color: #ffffff;
-          }
+            .fluent-button:hover {
+                background: rgba(24, 144, 255, 0.25);
+                border-color: #1890ff;
+                color: #fff;
+                box-shadow: 0 0 6px rgba(24, 144, 255, 0.4);
+            }
+
         `}</style>
       </>
     )
