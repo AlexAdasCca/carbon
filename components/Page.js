@@ -24,6 +24,8 @@ class Page extends React.Component {
           <Header enableHeroText={enableHeroText} />
           <div className="button-container">
             <LoginButton />
+          </div>
+          <div className="button-settings">
             <PageGlobalSettings />
           </div>
           <div className="page">{children}</div>
